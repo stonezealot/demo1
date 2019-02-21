@@ -4,25 +4,21 @@ import { createStackNavigator, createAppContainer } from 'react-navigation';
 import MainScreen from './MainScreen';
 type Props={};
 export default class LoginView extends Component<props> {
-    // static navigationOptions = {
-    //     title: 'HomeScreen'
-    // }
+
+    username:'';
+    password:'';
+
     constructor(props){
         super(props);
         this._onChangeText = this._onChangeText.bind(this);
         this.state = {
-            showValue:"",
+            username:"",
         }
     }
     _onChangeText(inputData){
         console.log("输入的内容",inputData);
         //把获取到的内容，设置给showValue
-        this.setState({showValue:inputData});
-        this.setState({helloName:inputData});
-
-    }
-    showData(){
-        alert(this.state.showValue);//展示输入框的内容
+        this.setState({username:inputData});
     }
 
     render() {
@@ -32,13 +28,8 @@ export default class LoginView extends Component<props> {
                 <TextInput placeholder={'请输入用户名'} style={styles.inputStyle} onChangeText={this._onChangeText}/>
                 <TextInput placeholder={'请输入密码'} style={styles.inputStyle} secureTextEntry={true} />
                 <View style={styles.loginButtonStyle}>
-                    <Button title="登陆" onPress={() => this.props.navigation.navigate('Home', { user: this.state.showValue})} />
+                    <Button title="登陆" onPress={() => this.props.navigation.navigate('Home', { user: this.state.username})} />
                 </View>
-                <TouchableOpacity onPress={this.showData.bind(this)}>
-                    <View style={styles.btn}>
-                        <Text style={styles.wordC}>搜索</Text>
-                    </View>
-                </TouchableOpacity>
             </View>
         )
     }

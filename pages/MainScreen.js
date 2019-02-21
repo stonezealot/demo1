@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Text, StyleSheet, View ,Image} from 'react-native'
 import TabNavigator from 'react-native-tab-navigator'
 import HomeView from './HomeView'
+import MeView from './MeView'
 
 export default class MainScreen extends Component {
     static navigationOptions = ({ navigation }) => ({
@@ -26,8 +27,8 @@ export default class MainScreen extends Component {
                         renderSelectedIcon={() => <Image style={styles.myImage} source={require('../Img/home.png')} />}
                         badgeText=""
                         onPress={() => this.setState({ selectedTab: 'home' })}>
-                        <View style={{flex:1, backgroundColor: 'red'}}>
-                            <Text style={{alignItems: 'center'}}>WELCOME {this.state.helloName}</Text>
+                        <View style={{flex:1}}>
+                            <HomeView />
                         </View>
                     </TabNavigator.Item>
                     <TabNavigator.Item
@@ -37,7 +38,9 @@ export default class MainScreen extends Component {
                         renderSelectedIcon={() => <Image style={styles.myImage} source={require('../Img/me.png')} />}
                         badgeText=""
                         onPress={() => this.setState({ selectedTab: 'me' })}>
-                        <View style={{flex:1, backgroundColor: 'yellow'}}></View>
+                        <View style={{flex: 1}}>
+                            <MeView />
+                        </View>
                     </TabNavigator.Item>
                 </TabNavigator>
             </View>
