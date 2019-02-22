@@ -6,6 +6,8 @@ const width = Dimensions.get('window').width
 export default class HomeView extends Component<props> {
     render() {
         return (
+            <View style={styles.container}>
+                    <Text style={styles.recommendStyle}>电影推荐</Text>
             <ScrollView
                 horizontal={true}
                 showHorizontalScrollIndicator={false}
@@ -13,6 +15,7 @@ export default class HomeView extends Component<props> {
             >
                 {this.renderChildView()}
             </ScrollView>
+            </View>
 
         );
     }
@@ -41,5 +44,10 @@ const styles = StyleSheet.create({
     myImage:{
         width: 22,
         height: 22
+    },
+    recommendStyle:{
+        height:40,
+        textAlign: 'center',
+        fontSize: 30,
     }
 })
