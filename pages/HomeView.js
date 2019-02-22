@@ -10,7 +10,7 @@ export default class HomeView extends Component<props> {
                     <Text style={styles.recommendStyle}>电影推荐</Text>
             <ScrollView
                 horizontal={true}
-                showHorizontalScrollIndicator={false}
+                showsHorizontalScrollIndicator={false}
                 pagingEnabled={true}
             >
                 {this.renderChildView()}
@@ -30,7 +30,6 @@ export default class HomeView extends Component<props> {
                 </View>
             )
         }
-
         return allChild;
     }
 }
